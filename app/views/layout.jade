@@ -7,10 +7,15 @@ html(lang='tr')
     block css
       link(rel='stylesheet', href='/css/bootstrap.min.css')
       link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.min.css')
+      link(rel='stylesheet', href='/components/ammap3/ammap/ammap.css')
       link(rel='stylesheet', href='/css/style.css')
     block js
-      script(src="/components/jquery/dist/jquery.min.js")
-      script(src="/components/bootstrap/dist/js/bootstrap.min.js")
+      script(src='/components/jquery/dist/jquery.min.js')
+      script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+      script(src='/components/ammap3/ammap/ammap.js')
+      script(src='/components/ammap3/ammap/maps/js/turkeyHigh.js')
+      script(src='/components/ammap3/ammap/themes/light.js')
+      script(src='/components/ammap3/ammap/lang/tr.js')
 
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
@@ -58,10 +63,9 @@ html(lang='tr')
             i.fa.fa-envelope-o.fa-3x
             p
               a(href='mailto:info@paydaegitim.com') info@paydaegitim.com
-
     footer
       hr
       .container
-        p.text-right © 2016 Librix Library Otomation System
+        p.text-right © 2016 Librix Kütüphane Otomasyon Sistemi
     block script
       script(src="/js/app.js")
