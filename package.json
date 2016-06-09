@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "engines": {
+    "node": "6.1.0"
   },
   "dependencies": {
     "express": "^4.13.3",
@@ -18,10 +22,11 @@
     "jade": "^1.11.0"
   },
   "devDependencies": {
+    "bower": "^1.7.9",
     "gulp": "^3.9.0",
-    "gulp-sass": "^2.0.4",
-    "gulp-nodemon": "^2.0.2",
     "gulp-livereload": "^3.8.0",
-    "gulp-plumber": "^1.0.0"
+    "gulp-nodemon": "^2.0.2",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^2.0.4"
   }
 }
