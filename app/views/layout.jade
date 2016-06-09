@@ -1,17 +1,67 @@
 doctype html
-html(lang='en')
+html(lang='tr')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title= title
     block css
-      link(rel='stylesheet', href='/components/bootstrap/dist/css/bootstrap.css')
+      link(rel='stylesheet', href='/css/bootstrap.min.css')
+      link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.min.css')
       link(rel='stylesheet', href='/css/style.css')
     block js
       script(src="/components/jquery/dist/jquery.min.js")
+      script(src="/components/bootstrap/dist/js/bootstrap.min.js")
+
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
   body
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-collapse-main')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Librix Dashboard
+        #navbar-collapse-main.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#home')
+                i.fa.fa-home(aria-hidden='true')
+                |&nbsp;Ana Sayfa
+            li
+              a(href='#about')
+                i.fa.fa-info-circle(aria-hidden='true')
+                |&nbsp;Hakkında
+            li
+              a(href='#services')
+                i.fa.fa-cog(aria-hidden='true')
+                |&nbsp;Ayarlar
+            li
+              a(href='#google_map')
+                i.fa.fa-phone(aria-hidden='true')
+                |&nbsp;İletişim
     block content
+    #services.pad-section
+      .container
+        .row
+          .col-sm-8.col-sm-offset-2.text-center
+            h3 Bize Ulaşın!
+            hr.primary
+            h4 Librix %100 yerli yazılım olarak ülke genelinde kütüphane kullanımı ve okuma alışkanlığı hakkında ihtiyaç duyulan tüm istatistikleri sunmaktadır.
+        .row
+          .col-sm-4.col-sm-offset-2.text-center
+            i.fa.fa-phone.fa-3x
+            p 0(506) 652 2932
+          .col-sm-4.text-center
+            i.fa.fa-envelope-o.fa-3x
+            p
+              a(href='mailto:info@paydaegitim.com') info@paydaegitim.com
+
+    footer
+      hr
+      .container
+        p.text-right © 2016 Librix Library Otomation System
     block script
       script(src="/js/app.js")
