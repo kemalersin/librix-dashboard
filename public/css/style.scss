@@ -40,6 +40,7 @@ html, body {
 
   .nav > li:not(.active) > a:focus {
     background: none;
+    color: rgba(255, 255, 255, 0.7);
   }
 }
 

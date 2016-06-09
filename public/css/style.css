@@ -18,7 +18,8 @@ html, body {
     -moz-transition: all 0.35s;
     transition: all 0.35s; }
   .navbar-fixed-top .nav > li:not(.active) > a:focus {
-    background: none; }
+    background: none;
+    color: rgba(255, 255, 255, 0.7); }
 
 .btn {
   font-size: 14px;
