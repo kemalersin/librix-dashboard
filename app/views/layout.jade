@@ -11,11 +11,14 @@ html(lang='tr')
       link(rel='stylesheet', href='/css/style.css')
     block js
       script(src='/components/jquery/dist/jquery.min.js')
+      script(src='/components/jquery.easing/jquery.easing.min.js')
       script(src='/components/bootstrap/dist/js/bootstrap.min.js')
       script(src='/components/ammap3/ammap/ammap.js')
       script(src='/components/ammap3/ammap/maps/js/turkeyHigh.js')
       script(src='/components/ammap3/ammap/themes/light.js')
       script(src='/components/ammap3/ammap/lang/tr.js')
+      script(src='/components/scrollreveal/dist/scrollreveal.min.js')
+      script(src='/components/bootstrap-autohidingnavbar/dist/jquery.bootstrap-autohidingnavbar.min.js')
 
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
@@ -32,7 +35,7 @@ html(lang='tr')
         #navbar-collapse-main.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='#home')
+              a.page-scroll(href='#home')
                 i.fa.fa-home(aria-hidden='true')
                 |&nbsp;Ana Sayfa
             li
@@ -44,23 +47,23 @@ html(lang='tr')
                 i.fa.fa-cog(aria-hidden='true')
                 |&nbsp;Ayarlar
             li
-              a(href='#google_map')
+              a.page-scroll(href='#contact')
                 i.fa.fa-phone(aria-hidden='true')
                 |&nbsp;İletişim
     block content
-    #services.pad-section
+    section#contact.pad-section
       .container
         .row
           .col-sm-8.col-sm-offset-2.text-center
             h3 Bize Ulaşın!
             hr.primary
-            h4 Librix %100 yerli yazılım olarak ülke genelinde kütüphane kullanımı ve okuma alışkanlığı hakkında ihtiyaç duyulan tüm istatistikleri sunmaktadır.
+            p Librix %100 yerli yazılım olarak ülke genelinde kütüphane kullanımı ve okuma alışkanlığı hakkında ihtiyaç duyulan tüm istatistikleri sunmaktadır.
         .row
           .col-sm-4.col-sm-offset-2.text-center
-            i.fa.fa-phone.fa-3x
+            i.fa.fa-phone.fa-3x.sr-contact
             p 0(506) 652 2932
           .col-sm-4.text-center
-            i.fa.fa-envelope-o.fa-3x
+            i.fa.fa-envelope-o.fa-3x.sr-contact
             p
               a(href='mailto:info@paydaegitim.com') info@paydaegitim.com
     footer
