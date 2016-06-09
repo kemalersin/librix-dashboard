@@ -17,11 +17,11 @@ html, body {
   width: 100%;
   display: table;
   position: relative;
+  background: url(/img/home.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
-  background: url(/img/home.jpg) no-repeat center center fixed; }
+  background-size: cover; }
   #home h1 {
     margin: 0;
     padding: 0;
@@ -37,7 +37,7 @@ html, body {
     color: #CFA16F; }
   #services hr {
     max-width: 50px;
-    border: 3px #cfa16f; }
+    border: 1px solid #cfa16f; }
   #services h4 {
     margin-bottom: 20px; }
   #services i.fa {
