@@ -11,23 +11,24 @@ html, body {
   display: table-cell;
   text-align: center;
   vertical-align: middle; }
-  .text-vcenter h1 {
-    font-size: 4.5em;
-    font-weight: 700;
-    margin: 0;
-    padding: 0; }
 
 #home {
-  background: url(/img/home.jpg) no-repeat center center fixed;
-  display: table;
   height: 100%;
-  position: relative;
   width: 100%;
+  display: table;
+  position: relative;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  background: url(/img/home.jpg) no-repeat center center fixed; }
+  #home h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 6.8vh;
+    font-weight: 700; }
   #home h3 {
+    font-size: 2.5vh;
     margin-bottom: 24px; }
 
 #services {
@@ -37,8 +38,7 @@ html, body {
     color: #CFA16F; }
   #services hr {
     max-width: 50px;
-    border-width: 3px;
-    border-color: #CFA16F; }
+    border: 3px #cfa16f; }
   #services h4 {
     margin-bottom: 20px; }
   #services i.fa {
