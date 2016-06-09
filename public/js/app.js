@@ -35,10 +35,10 @@
     distance: '0px'
   }, 300);
 
-  $('a.page-scroll').bind('click', function(event) {
+  $('a.page-scroll').bind('click', function(e) {
     var $anchor = $(this);
 
-    event.preventDefault();
+    e.preventDefault();
 
     $('html, body').stop().animate({
       scrollTop: ($($anchor.attr('href')).offset().top - $('.navbar-fixed-top').height())
