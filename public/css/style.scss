@@ -53,7 +53,9 @@ html, body {
   @include transition;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
   background-color: #ee4b28;
   border-color: #ed431f;
 }

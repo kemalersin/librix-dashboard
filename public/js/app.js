@@ -38,16 +38,11 @@
   $('a.page-scroll').bind('click', function(event) {
     var $anchor = $(this);
 
-    $('html, body').stop().animate({
-      scrollTop: ($($anchor.attr('href')).offset().top - 50)
-    }, 1250, 'easeInOutExpo');
-
     event.preventDefault();
-  });
 
-  $('.navbar-fixed-top').autoHidingNavbar({
-    hideOffset: 200,
-    showOnBottom: false
+    $('html, body').stop().animate({
+      scrollTop: ($($anchor.attr('href')).offset().top - $('.navbar-fixed-top').height())
+    }, 1250, 'easeInOutExpo');
   });
 
   AmCharts.makeChart("map", {
