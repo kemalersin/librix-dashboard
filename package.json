@@ -10,6 +10,7 @@
     "node": "6.1.0"
   },
   "dependencies": {
+    "bower": "^1.7.9",
     "express": "^4.13.3",
     "serve-favicon": "^2.3.0",
     "morgan": "^1.6.1",
@@ -22,7 +23,6 @@
     "jade": "^1.11.0"
   },
   "devDependencies": {
-    "bower": "^1.7.9",
     "gulp": "^3.9.0",
     "gulp-livereload": "^3.8.0",
     "gulp-nodemon": "^2.0.2",
