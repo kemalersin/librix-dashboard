@@ -37,6 +37,10 @@ html, body {
     @include navbarfont;
     @include transition;
   }
+
+  .nav > li:not(.active) > a:focus {
+    background: none;
+  }
 }
 
 .btn {
