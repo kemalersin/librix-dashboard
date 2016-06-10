@@ -1,7 +1,11 @@
 (function ($) {
   'use strict';
 
-  var scroll = function (el) {
+  var scroll = function (el, reset) {
+    if (reset) {
+      slider.unslider('animate:first');
+    }
+    
     $('html, body').stop().animate({
       scrollTop: ($(el).offset().top - $('.navbar-fixed-top').height())
     }, 1250, 'easeInOutExpo');
@@ -12,13 +16,21 @@
   }
 
   var mapClick = function (e) {
-    scroll('#institutions');
+    scroll('#institutions', true);
     dataTable.columns(1).search(e.mapObject.title).draw();
   }
 
   var mapHomeClick = function (e) {
+    scroll('#institutions', true);
     dataTable.columns(1).search('').draw();
   }
+
+  var slider = $('#institutions').unslider({
+    arrows: false,
+    autoplay: false,
+    keys: false,
+    nav: false
+  });
 
   $('body').scrollspy({
     target: '.navbar-fixed-top',
@@ -74,6 +86,10 @@
     language: {
       url: '/js/datatables/Turkish.json'
     }
+  });
+
+  dataTable.on('select', function (e, dt, type, indexes) {
+    slider.unslider('next');
   });
 
   AmCharts.makeChart('map', {

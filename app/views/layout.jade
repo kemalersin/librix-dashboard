@@ -7,6 +7,8 @@ html(lang='tr')
     block css
       link(rel='stylesheet', href='/css/bootstrap.min.css')
       link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.min.css')
+      link(rel='stylesheet', href='/components/unslider/dist/css/unslider.css')
+      link(rel='stylesheet', href='/components/unslider/dist/css/unslider-dots.css')
       link(rel='stylesheet', href='/components/ammap3/ammap/ammap.css')
       link(rel='stylesheet', href='/components/datatables.net-bs/css/dataTables.bootstrap.min.css')
       link(rel='stylesheet', href='/components/datatables.net-select-bs/css/select.bootstrap.min.css')
@@ -15,6 +17,7 @@ html(lang='tr')
       script(src='/components/jquery/dist/jquery.min.js')
       script(src='/components/jquery.easing/js/jquery.easing.min.js')
       script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+      script(src='/components/unslider/dist/js/unslider-min.js')
       script(src='/components/ammap3/ammap/ammap.js')
       script(src='/components/ammap3/ammap/plugins/dataloader/dataloader.min.js')
       script(src='/components/ammap3/ammap/maps/js/turkeyHigh.js')
@@ -44,17 +47,17 @@ html(lang='tr')
                 i.fa.fa-home(aria-hidden='true')
                 |&nbsp;Ana Sayfa
             li
-              a(href='#')
-                i.fa.fa-info-circle(aria-hidden='true')
-                |&nbsp;Hakkında
-            li
-              a(href='#')
-                i.fa.fa-cog(aria-hidden='true')
-                |&nbsp;Ayarlar
+              a.page-scroll(href='#map')
+                i.fa.fa-map(aria-hidden='true')
+                |&nbsp;Harita
             li
               a.page-scroll(href='#contact')
                 i.fa.fa-phone(aria-hidden='true')
                 |&nbsp;İletişim
+            li
+              a(href='#')
+                i.fa.fa-sign-in(aria-hidden='true')
+                | &nbsp;Giriş
     block content
     section#contact.pad-section
       .container
