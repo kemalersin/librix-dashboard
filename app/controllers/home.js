@@ -20,3 +20,19 @@ router.get('/institutions', function (req, res, next) {
     });
   })
 });
+
+router.get('/mapdata', function (req, res, next) {
+  res.send({
+    map: 'turkeyHigh',
+    areas: [{
+      id: 'TR-01',
+      value: 22
+    }, {
+      id: 'TR-06',
+      value: 25
+    }, {
+      id: 'TR-34',
+      value: 25
+    }]
+  });
+});

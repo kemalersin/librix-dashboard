@@ -67,6 +67,9 @@ tr[role='row'] {
   text-align: center;
   vertical-align: middle; }
 
+.dataTables_scroll {
+  margin: 10px 0 18px 0; }
+
 .row-selected {
   background-color: #f1e4d5 !important; }
 
