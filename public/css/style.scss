@@ -43,9 +43,13 @@ html, body {
 @include no-padding('bottom');
 @include no-padding('all');
 
-tr[role='row'] {
+.dataTable > tbody > tr[role='row'] {
   cursor: pointer;
   @include transition;
+}
+
+.dataTable > tbody > tr[role='row']:hover, .row-selected {
+  background-color: #f1e4d5 !important;
 }
 
 .navbar-brand {
@@ -100,10 +104,6 @@ tr[role='row'] {
 
 .dataTables_scroll {
   margin: 10px 0 18px 0;
-}
-
-.row-selected {
-  background-color: #f1e4d5 !important;
 }
 
 .row.vcenter {

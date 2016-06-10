@@ -17,11 +17,14 @@ html, body {
 .no-padding {
   padding: 0 !important; }
 
-tr[role='row'] {
+.dataTable > tbody > tr[role='row'] {
   cursor: pointer;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s; }
+
+.dataTable > tbody > tr[role='row']:hover, .row-selected {
+  background-color: #f1e4d5 !important; }
 
 .navbar-brand {
   font-weight: 700;
@@ -72,9 +75,6 @@ tr[role='row'] {
 
 .dataTables_scroll {
   margin: 10px 0 18px 0; }
-
-.row-selected {
-  background-color: #f1e4d5 !important; }
 
 .row.vcenter {
   display: flex;
