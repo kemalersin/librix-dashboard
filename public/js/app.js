@@ -154,6 +154,8 @@
         );
 
         initBack();
+        
+        slider.unslider('next');
       });
 
       if (isNew) {
@@ -162,8 +164,6 @@
         });
       }
     });
-    
-    slider.unslider('next');
   });
 
   AmCharts.makeChart('map', {
