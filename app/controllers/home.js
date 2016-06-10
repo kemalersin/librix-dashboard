@@ -1,4 +1,5 @@
-var express = require('express'),
+var _ = require('lodash'),
+  express = require('express'),
   jsonfile = require('jsonfile'),
   config = require('../../config/config'),
   router = express.Router();
@@ -18,21 +19,23 @@ router.get('/institutions', function (req, res, next) {
     res.send({
       data: obj
     });
-  })
+  });
 });
 
 router.get('/mapdata', function (req, res, next) {
-  res.send({
-    map: 'turkeyHigh',
-    areas: [{
-      id: 'TR-01',
-      value: 22
-    }, {
-      id: 'TR-06',
-      value: 25
-    }, {
-      id: 'TR-34',
-      value: 25
-    }]
+  jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
+    var data = _.chain(obj).groupBy(function (activity) {
+      return activity['Il'];
+    }).toPairs().transform(function (result, value) {
+      result.push({
+        id: value[0],
+        value: _.size(value)
+      });
+    }, []).value();
+
+    res.send({
+      map: 'turkeyHigh',
+      areas: data
+    });
   });
 });
