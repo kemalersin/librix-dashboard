@@ -17,6 +17,8 @@
 
   var mapClick = function (e) {
     scroll('#institutions', true);
+
+    dtInstitutions.rows().deselect();
     dtInstitutions.columns(1).search(e.mapObject.title).draw();
   }
 
@@ -154,7 +156,6 @@
         );
 
         initBack();
-        
         slider.unslider('next');
       });
 
