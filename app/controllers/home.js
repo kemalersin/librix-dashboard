@@ -29,7 +29,7 @@ router.get('/mapdata', function (req, res, next) {
     }).toPairs().transform(function (result, value) {
       result.push({
         id: value[0],
-        value: _.size(value)
+        value: _.size(value[1])
       });
     }, []).value();
 

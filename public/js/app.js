@@ -1,11 +1,18 @@
 (function ($) {
   'use strict';
 
+  var scroll = function (el) {
+    $('html, body').stop().animate({
+      scrollTop: ($(el).offset().top - $('.navbar-fixed-top').height())
+    }, 1250, 'easeInOutExpo');
+  }
+
   var mapRender = function (e) {
     $('.amcharts-chart-div a').remove();
   }
 
   var mapClick = function (e) {
+    scroll('#institutions');
     dataTable.columns(1).search(e.mapObject.title).draw();
   }
 
@@ -27,12 +34,7 @@
   }, 300);
 
   $('a.page-scroll').click(function(e) {
-    var $anchor = $(this);
-
-    $('html, body').stop().animate({
-      scrollTop: ($($anchor.attr('href')).offset().top - $('.navbar-fixed-top').height())
-    }, 1250, 'easeInOutExpo');
-
+    scroll($(this).attr('href'));
     e.preventDefault();
   });
 
