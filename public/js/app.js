@@ -122,7 +122,7 @@
           info: false,
           className: 'row-selected'
         },
-        dom: '<"row vcenter"<"institute-info col-sm-6"><"col-sm-6"f>>rt<"row"<"col-sm-6"i><"col-sm-6"p>>',
+        dom: '<"row"<"dt-info col-sm-6"><"col-sm-6 hidden-xs"f>>rt<"row"<"col-sm-6"i><"col-sm-6"p>>',
         columns: [
           { data: 'BaslangicTarihi', width: '15%', type: 'date' },
           { data: 'BitisTarihi', width: '15%', type: 'date' },
@@ -150,7 +150,7 @@
       });
 
       dtActivities.one('draw', function () {
-        $('.institute-info').html(
+        $('.dt-info').html(
           '<a href class="slide-back to-institutions"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> ' +
           '<span class="text-primary"><strong>' + data['Tanim'] + ' Etkinlileri</strong></span>'
         );
@@ -161,7 +161,6 @@
 
       if (isNew) {
         dtActivities.on('select', function (e, dt, type, indexes) {
-
         });
       }
     });

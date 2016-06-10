@@ -106,6 +106,10 @@ html, body {
   margin: 10px 0 18px 0;
 }
 
+.dt-info {
+  line-height: 36px;
+}
+
 .row.vcenter {
   display: flex;
   align-items: center;
@@ -141,6 +145,10 @@ html, body {
 #institutions {
   width: 100%;
   padding: 40px 0;
+
+  li {
+    list-style: none;
+  }
 }
 
 #contact {
