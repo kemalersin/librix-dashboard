@@ -8,6 +8,8 @@ html(lang='tr')
       link(rel='stylesheet', href='/css/bootstrap.min.css')
       link(rel='stylesheet', href='/components/font-awesome/css/font-awesome.min.css')
       link(rel='stylesheet', href='/components/ammap3/ammap/ammap.css')
+      link(rel='stylesheet', href='/components/datatables.net-bs/css/dataTables.bootstrap.min.css')
+      link(rel='stylesheet', href='/components/datatables.net-select-bs/css/select.bootstrap.min.css')
       link(rel='stylesheet', href='/css/style.css')
     block js
       script(src='/components/jquery/dist/jquery.min.js')
@@ -18,6 +20,9 @@ html(lang='tr')
       script(src='/components/ammap3/ammap/themes/light.js')
       script(src='/components/ammap3/ammap/lang/tr.js')
       script(src='/components/scrollreveal/dist/scrollreveal.min.js')
+      script(src='/components/datatables.net/js/jquery.dataTables.min.js')
+      script(src='/components/datatables.net-bs/js/dataTables.bootstrap.min.js')
+      script(src='/components/datatables.net-select/js/dataTables.select.min.js')
 
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')

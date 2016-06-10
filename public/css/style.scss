@@ -20,9 +20,31 @@ $primary-color: #cfa16f;
   color: rgba(255, 255, 255, 0.7);
 }
 
+@mixin no-padding($side) {
+  @if $side == 'all' {
+    .no-padding {
+      padding: 0 !important;
+    }
+  } @else {
+    .no-padding-#{$side} {
+      padding-#{$side}: 0 !important;
+    }
+  }
+}
+
 html, body {
   width: 100%;
   height: 100%;
+}
+
+@include no-padding('left');
+@include no-padding('right');
+@include no-padding('top');
+@include no-padding('bottom');
+@include no-padding('all');
+
+tr[role='row'] {
+  cursor: pointer;
 }
 
 .navbar-brand {
@@ -75,6 +97,10 @@ html, body {
   vertical-align: middle;
 }
 
+.row-selected {
+  background-color: #f1e4d5 !important;
+}
+
 #home {
   width: 100%;
   height: 100%;
@@ -100,6 +126,11 @@ html, body {
   height: 678px;
   padding: 40px;
   @include background('/img/map.jpg');
+}
+
+#institutions {
+  width: 100%;
+  padding: 40px;
 }
 
 #contact {

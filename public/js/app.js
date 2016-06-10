@@ -51,6 +51,38 @@
     $('.navbar-toggle:visible').click();
   });
 
+  $('#institutions-table').DataTable({
+    ajax: '/institutions',
+    pageLength: 25,
+    processing: true,
+    scrollX: true,
+    select: {
+      style: 'single',
+      blurable: true,
+      info: false,
+      className: 'row-selected'
+    },
+    columns: [
+      { data: 'Kod', width: '10%' },
+      { data: 'Il', width: '10%' },
+      { data: 'Ilce', width: '10%' },
+      { data: 'Tanim', width: '30%' },
+      { data: 'ToplamEtkinlik', width: '13%', type: 'html-num', className: 'text-center' },
+      { data: 'GerceklesenEtkinlik', width: '14%', type: 'html-num', className: 'text-center' },
+      { data: 'KalanEtkinlik', width: '13%', type: 'html-num', className: 'text-center' }
+    ],
+    order: [[ 1, 'asc' ], [ 2, 'asc' ]],
+    columnDefs: [
+      {
+        targets: [1],
+        orderData: [1, 2]
+      }
+    ],
+    language: {
+      url: "/js/datatables/Turkish.json"
+    }
+  });
+
   AmCharts.makeChart("map", {
     "type": "map",
     "autoDisplay": true,
