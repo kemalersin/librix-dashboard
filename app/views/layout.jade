@@ -18,6 +18,8 @@ html(lang='tr')
       script(src='/components/jquery.easing/js/jquery.easing.min.js')
       script(src='/components/bootstrap/dist/js/bootstrap.min.js')
       script(src='/components/unslider/dist/js/unslider-min.js')
+      script(src='/components/moment/min/moment.min.js')
+      script(src='/components/moment/locale/tr.js')
       script(src='/components/ammap3/ammap/ammap.js')
       script(src='/components/ammap3/ammap/plugins/dataloader/dataloader.min.js')
       script(src='/components/ammap3/ammap/maps/js/turkeyHigh.js')
@@ -51,12 +53,16 @@ html(lang='tr')
                 i.fa.fa-map(aria-hidden='true')
                 |&nbsp;Harita
             li
+              a.page-scroll(href='#institutions')
+                i.fa.fa-institution(aria-hidden='true')
+                | &nbsp;Kurumlar
+            li
               a.page-scroll(href='#contact')
                 i.fa.fa-phone(aria-hidden='true')
                 |&nbsp;İletişim
             li
               a(href='#')
-                i.fa.fa-sign-in(aria-hidden='true')
+                i.fa.fa-user(aria-hidden='true')
                 | &nbsp;Giriş
     block content
     section#contact.pad-section

@@ -45,6 +45,7 @@ html, body {
 
 tr[role='row'] {
   cursor: pointer;
+  @include transition;
 }
 
 .navbar-brand {
@@ -105,6 +106,11 @@ tr[role='row'] {
   background-color: #f1e4d5 !important;
 }
 
+.row.vcenter {
+  display: flex;
+  align-items: center;
+}
+
 #home {
   width: 100%;
   height: 100%;
@@ -134,7 +140,7 @@ tr[role='row'] {
 
 #institutions {
   width: 100%;
-  padding: 40px;
+  padding: 40px 0;
 }
 
 #contact {

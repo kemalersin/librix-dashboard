@@ -22,6 +22,26 @@ router.get('/institutions', function (req, res, next) {
   });
 });
 
+router.get('/activities/:institute', function (req, res, next) {
+  jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
+    var data = _.chain(obj)
+      .filter({ 'KurumKodu': req.params['institute'] })
+      .transform(function (result, value) {
+        result.push(_.pick(value, [
+          'BaslangicTarihi',
+          'BitisTarihi',
+          'Konu',
+          'IlgiliKisi',
+          'Tamamlandi'
+        ]));
+      }, []);
+
+    res.send({
+      data: data
+    });
+  });
+});
+
 router.get('/mapdata', function (req, res, next) {
   jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
     var data = _.chain(obj).groupBy(function (activity) {
