@@ -4,6 +4,7 @@
   var scroll = function (el, reset) {
     if (reset) {
       slider.unslider('animate:first');
+      dtInstitutions.rows().deselect();
     }
 
     $('html, body').stop().animate({
@@ -17,8 +18,6 @@
 
   var mapClick = function (e) {
     scroll('#institutions', true);
-
-    dtInstitutions.rows().deselect();
     dtInstitutions.columns(1).search(e.mapObject.title).draw();
   }
 
