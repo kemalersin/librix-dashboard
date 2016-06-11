@@ -1,5 +1,6 @@
 node_modules/
 public/components
+public/js/app.js
 .idea/
 .env
 .sass-cache
