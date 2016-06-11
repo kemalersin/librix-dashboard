@@ -1,4 +1,6 @@
-[{
+[
+  {
+    "Id": 1,
     "Il": "TR-06",
     "KurumKodu": "711690",
     "BaslangicTarihi": "2016-05-29",
@@ -6,9 +8,14 @@
     "Tamamlandi": true,
     "IlgiliKisi": "İbrahim Akbaş",
     "Konu": "Semrin Şahin’den Söyleşi ve İmza Günü",
-    "Ozet": "Bafra ‘da görev yapan Türkçe öğretmeni ve aynı zamanda öykü yazarı olan Semrin Şahin okulumuzun kütüphanesinde söyleşi ve imza günü gerçekleştirecek.",
-    "Aciklama": "29 Mayıs Pazar günü okul kütüphanemizde saat 14.00-16.00 arasında düzenlenecek etkinlik kapsamında “Kadın Olsaydınız Anlar Mıydınız” ve “Güvercinler Zamanı” öykü kitapları üzerine söyleşecek ve kitaplarını imzalayacaktır.\n\nAdana Ceyhan doğumlu olan Semrin Şahin’in öyküleri, Acemi, F, Galapera Öykü, Güncel Sanat, Hayâl, Hayal Bilgisi, Hece Öykü, Ihlamur, Kalem, Koridor, Kundak, Lacivert, Patika, Semaver, Temrin gibi dergi ve fanzinlerde yayımlandı."
-  }, {
+    "Ozet": "Bafra‘da görev yapan Türkçe öğretmeni ve aynı zamanda öykü yazarı olan Semrin Şahin okulumuzun kütüphanesinde söyleşi ve imza günü gerçekleştirecek.",
+    "Aciklama": "29 Mayıs Pazar günü okul kütüphanemizde saat 14.00-16.00 arasında düzenlenecek etkinlik kapsamında “Kadın Olsaydınız Anlar Mıydınız” ve “Güvercinler Zamanı” öykü kitapları üzerine söyleşecek ve kitaplarını imzalayacaktır.\n\nAdana Ceyhan doğumlu olan Semrin Şahin’in öyküleri, Acemi, F, Galapera Öykü, Güncel Sanat, Hayâl, Hayal Bilgisi, Hece Öykü, Ihlamur, Kalem, Koridor, Kundak, Lacivert, Patika, Semaver, Temrin gibi dergi ve fanzinlerde yayımlandı.",
+    "Gorseller": [
+      "http://www.samsunetkinlik.com/wp-content/uploads/2016/05/semrin-sahin-imza-gunu-soylesi.jpg"
+    ]
+  },
+  {
+    "Id": 2,
     "Il": "TR-06",
     "KurumKodu": "711690",
     "BaslangicTarihi": "2016-06-06",
@@ -17,15 +24,26 @@
     "IlgiliKisi": "İbrahim Akbaş",
     "Konu": "Emre Şahinler İmza Günü",
     "Ozet": "Mühür Yayınları’ndan çıkan kitabı ‘Ölü Mızıkacılar Diyarı’ yazarı Emre Şahinler imza günü için  27 ve 28 Şubat saat 12.00’da, Karadeniz 2. Kitap Fuarı Samsun’da kitapseverlerle buluşuyor…",
-    "Aciklama": "<b>Emre Şahinler;</b> 10 Nisan 1989’da Kartal’da doğdu. 2007 yılında Çırağan Lisesi’ni bitirdi. İstanbul Aydın Üniversitesi İktisadi ve İdari Bilimler Fakültesi’nden mezun oldu. 2012 yılında Polonya’da Wroclaw School of Banking’te öğrenim gördü. 2013’te Avusturya’da Alpen Adria Üniversitesi’nde lisans eğitimini tamamladı. Şiirleri ve poetik yazıları Akatalpa, Akköy, Eliz, Kurşun Kalem, Kıyı, Lacivert, Mühür, Patika, Şair Çıkmazı, Temren dergilerinde ve şiir yıllıklarında yayımlandı."
-}, {
-  "Il": "TR-01",
-  "KurumKodu": "718896",
-  "BaslangicTarihi": "2016-03-20",
-  "BitisTarihi": "2016-03-20",
-  "Tamamlandi": false,
-  "IlgiliKisi": "İbrahim Akbaş",
-  "Konu": "1. Kavak Çocuk Kitapları Fuarı Açıldı",
-  "Ozet": "Kavak’ta büyük bir heyecan ve coşku ile 1. Kavak Çocuk Kitapları Fuarı açıldı",
-  "Aciklama": "Kültür ve Turizm Bakanlığı desteği ile Kavak Belediyesi tarafından Atatürk parkında açılan 1. Kavak çocuk kitapları günlerinin açılışına Kavak Kaymakamı Mevlüt Şekerci, Garnizon Komutanı Üsteğmen Abdullah Kütükçü, Kavak Belediye Başkanı İbrahim Sarıcaoğlu,  Kadef Yönetim Kurulu, Samsun Yazarlar Derneği Başkanı Ahmet Seven, daire müdürleri, sivil toplum kuruluşlarının temsilcileri, yazarlar, öğrenciler ve vatandaşlar katıldı."
-}]
+    "Aciklama": "<p><b>Emre Şahinler;</b> 10 Nisan 1989’da Kartal’da doğdu. 2007 yılında Çırağan Lisesi’ni bitirdi. İstanbul Aydın Üniversitesi İktisadi ve İdari Bilimler Fakültesi’nden mezun oldu. 2012 yılında Polonya’da Wroclaw School of Banking’te öğrenim gördü. 2013’te Avusturya’da Alpen Adria Üniversitesi’nde lisans eğitimini tamamladı. Şiirleri ve poetik yazıları Akatalpa, Akköy, Eliz, Kurşun Kalem, Kıyı, Lacivert, Mühür, Patika, Şair Çıkmazı, Temren dergilerinde ve şiir yıllıklarında yayımlandı.</p><p>Yaygın inancın tersine, Lorem Ipsum rastgele sözcüklerden oluşmaz. Kökleri M.Ö. 45 tarihinden bu yana klasik Latin edebiyatına kadar uzanan 2000 yıllık bir geçmişi vardır. Virginia'daki Hampden-Sydney College'dan Latince profesörü Richard McClintock, bir Lorem Ipsum pasajında geçen ve anlaşılması en güç sözcüklerden biri olan 'consectetur' sözcüğünün klasik edebiyattaki örneklerini incelediğinde kesin bir kaynağa ulaşmıştır.</p><p>Lorm Ipsum, Çiçero tarafından M.Ö. 45 tarihinde kaleme alınan 'de Finibus Bonorum et Malorum' (İyi ve Kötünün Uç Sınırları) eserinin 1.10.32 ve 1.10.33 sayılı bölümlerinden gelmektedir. Bu kitap, ahlak kuramı üzerine bir tezdir ve Rönesans döneminde çok popüler olmuştur.</p><p>Lorem Ipsum pasajının ilk satırı olan 'Lorem ipsum dolor sit amet' 1.10.32 sayılı bölümdeki bir satırdan gelmektedir.</p><p>1500'lerden beri kullanılmakta olan standard Lorem Ipsum metinleri ilgilenenler için yeniden üretilmiştir. Çiçero tarafından yazılan 1.10.32 ve 1.10.33 bölümleri de 1914 H. Rackham çevirisinden alınan İngilizce sürümleri eşliğinde özgün biçiminden yeniden üretilmiştir.</p>",
+    "Gorseller": [
+      "http://www.samsunetkinlik.com/wp-content/uploads/2016/02/emre_sahinler_olu-mizikacilar-diyari.jpg",
+      "http://placehold.it/501x312?text=2.+Görsel",
+      "http://placehold.it/501x312?text=3.+Görsel",
+      "http://placehold.it/501x312?text=4.+Görsel",
+      "http://placehold.it/501x312?text=5.+Görsel"
+    ]
+  },
+  {
+    "Id": 3,
+    "Il": "TR-01",
+    "KurumKodu": "718896",
+    "BaslangicTarihi": "2016-03-20",
+    "BitisTarihi": "2016-03-23",
+    "Tamamlandi": false,
+    "IlgiliKisi": "İbrahim Akbaş",
+    "Konu": "1. Kavak Çocuk Kitapları Fuarı Açıldı",
+    "Ozet": "Kavak’ta büyük bir heyecan ve coşku ile 1. Kavak Çocuk Kitapları Fuarı açıldı",
+    "Aciklama": "Kültür ve Turizm Bakanlığı desteği ile Kavak Belediyesi tarafından Atatürk parkında açılan 1. Kavak çocuk kitapları günlerinin açılışına Kavak Kaymakamı Mevlüt Şekerci, Garnizon Komutanı Üsteğmen Abdullah Kütükçü, Kavak Belediye Başkanı İbrahim Sarıcaoğlu,  Kadef Yönetim Kurulu, Samsun Yazarlar Derneği Başkanı Ahmet Seven, daire müdürleri, sivil toplum kuruluşlarının temsilcileri, yazarlar, öğrenciler ve vatandaşlar katıldı.",
+    "Gorseller": []
+  }
+]

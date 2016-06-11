@@ -22,40 +22,66 @@ router.get('/institutions', function (req, res, next) {
   });
 });
 
-router.get('/activities/:institute', function (req, res, next) {
+router.get('/mapdata', function (req, res, next) {
   jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
-    var data = _.chain(obj)
-      .filter({ 'KurumKodu': req.params['institute'] })
-      .transform(function (result, value) {
-        result.push(_.pick(value, [
-          'BaslangicTarihi',
-          'BitisTarihi',
-          'Konu',
-          'IlgiliKisi',
-          'Tamamlandi'
-        ]));
-      }, []);
+    if (err) {
+      next();
+    }
+    else {
+      var data = _.chain(obj).groupBy(function (activity) {
+        return activity['Il'];
+      }).toPairs().transform(function (result, value) {
+        result.push({
+          id: value[0],
+          value: _.size(value[1])
+        });
+      }, []).value();
 
-    res.send({
-      data: data
-    });
+      res.send({
+        map: 'turkeyHigh',
+        areas: data
+      });
+    }
   });
 });
 
-router.get('/mapdata', function (req, res, next) {
+router.get('/activities/:institute', function (req, res, next) {
   jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
-    var data = _.chain(obj).groupBy(function (activity) {
-      return activity['Il'];
-    }).toPairs().transform(function (result, value) {
-      result.push({
-        id: value[0],
-        value: _.size(value[1])
-      });
-    }, []).value();
+    if (err) {
+      next();
+    }
+    else {
+      var data = _.chain(obj)
+        .filter({'KurumKodu': req.params['institute']})
+        .transform(function (result, value) {
+          result.push(_.pick(value, [
+            'Id',
+            'BaslangicTarihi',
+            'BitisTarihi',
+            'Konu',
+            'IlgiliKisi',
+            'Tamamlandi'
+          ]));
+        }, []);
 
-    res.send({
-      map: 'turkeyHigh',
-      areas: data
-    });
+      res.send({
+        data: data
+      });
+    }
+  });
+});
+
+router.get('/activity/:id', function (req, res, next) {
+  jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
+    if (err) {
+      next();
+    }
+    else {
+      var data = _.chain(obj)
+        .filter({'Id': _.parseInt(req.params['id'])})
+        .head();
+
+      res.send(data);
+    }
   });
 });

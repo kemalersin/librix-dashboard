@@ -12,29 +12,18 @@
     }, 1250, 'easeInOutExpo');
   }
 
-  var mapRender = function (e) {
+  var mapRender = function (event) {
     $('.amcharts-chart-div a').remove();
   }
 
-  var mapClick = function (e) {
+  var mapClick = function (event) {
     scroll('#institutions', true);
-    dtInstitutions.columns(1).search(e.mapObject.title).draw();
+    dtInstitutions.columns(1).search(event.mapObject.title).draw();
   }
 
-  var mapHomeClick = function (e) {
+  var mapHomeClick = function (event) {
     scroll('#institutions', true);
     dtInstitutions.columns(1).search('').draw();
-  }
-
-  var initBack = function () {
-    $('a.slide-back').one('click', function (e) {
-      e.preventDefault();
-      slider.unslider('prev');
-
-      if ($(this).hasClass('to-institutions')) {
-        dtInstitutions.rows().deselect();
-      }
-    });
   }
 
   var slider = $('#institutions').unslider({
@@ -42,6 +31,14 @@
     autoplay: false,
     keys: false,
     nav: false
+  });
+
+  slider.on('unslider.change', function(event, index, slide) {
+    if (index === 2) {
+      setTimeout(function () {
+        $('img.lazy.collapse').fadeIn('slow');
+      }, 500);
+    }
   });
 
   $('body').scrollspy({
@@ -57,8 +54,8 @@
     distance: '0px'
   }, 300);
 
-  $('a.page-scroll').click(function(e) {
-    e.preventDefault();
+  $('a.page-scroll').click(function(event) {
+    event.preventDefault();
     scroll($(this).attr('href'));
   });
 
@@ -66,6 +63,27 @@
     $('.navbar-collapse > ul > li.active').removeClass('active');
     $(this).parent('li').addClass('active');
     $('.navbar-toggle:visible').click();
+  });
+
+  $(document).on('click', 'a.slide-back', function (event) {
+    var $this = $(this);
+
+    event.preventDefault();
+    slider.unslider('prev');
+
+    if ($this.hasClass('to-institutions')) {
+      dtInstitutions.rows().deselect();
+    }
+    else if ($this.hasClass('to-activities')) {
+      dtActivities.rows().deselect();
+    }
+  }).on('click', '.thumb', function () {
+    $('.thumb.selected').removeClass('selected');
+
+    $(this).addClass('selected');
+
+    $('.main-img').find('img').hide()
+      .attr('src', this.src).fadeIn(1000);
   });
 
   var dtActivities,
@@ -149,17 +167,81 @@
       });
 
       dtActivities.one('draw', function () {
-        $('.dt-info').html(
+        $('.container.activities').find('.dt-info').html(
           '<a href class="slide-back to-institutions"><i class="fa fa-chevron-left" aria-hidden="true"></i></a> ' +
-          '<span class="text-primary"><strong>' + data['Tanim'] + ' Etkinlileri</strong></span>'
+          '<span class="text-primary"><strong>' + data['Tanim'] + ' Etkinlikleri</strong></span>'
         );
 
-        initBack();
         slider.unslider('next');
       });
 
       if (isNew) {
         dtActivities.on('select', function (e, dt, type, indexes) {
+          $.map(dt.rows({ selected: true }).data(), function (data) {
+            $.get('/activity/' + data['Id'], function (data) {
+              var $activity = $('.container.activity'),
+                $images = $activity.find('.images'),
+                $info = $activity.find('.info');
+
+              var begDate = data['BaslangicTarihi'],
+                endDate = data['BitisTarihi'],
+                days = moment(endDate).diff(begDate, 'd');
+
+              if (days === 0) {
+                days++;
+              }
+
+              $activity.find('.subject').text(data['Konu']);
+
+              $activity.find('.date span').text(
+                moment(begDate).format('DD.MM.Y') +
+                ' (' + days + ' gün)'
+              );
+
+              $activity.find('.summary').html('<strong>' + data['Ozet'] + '</strong>');
+              $activity.find('.description').html('<div class="text">' + data['Aciklama'] + '</div>');
+
+              $activity.find('.text').mCustomScrollbar({
+                theme: 'inset-dark',
+                scrollButtons: { enable: true },
+                advanced: { updateOnContentResize: true }
+              });
+
+              $images.find('.thumbnails').html('');
+
+              if (typeof data['Gorseller'] === 'undefined' || data['Gorseller'].length === 0) {
+                $images.hide();
+
+                $info.removeClass('col-sm-6')
+                  .addClass('col-sm-12');
+              }
+              else {
+                $images.show();
+
+                $info.removeClass('col-sm-12')
+                  .addClass('col-sm-6');
+
+                $images.find('.main-img').html('<img class="lazy collapse" src="' + data['Gorseller'][0] + '" />');
+
+                if (data['Gorseller'].length > 1) {
+                  $images.find('.row:first-child').height(365);
+                  $images.find('.row:last-child').show();
+
+                  data['Gorseller'].forEach(function (src) {
+                    $images.find('.thumbnails').append('<img class="lazy thumb collapse" src="' + src + '" />');
+                  });
+
+                  $images.find('.thumb:first-child').addClass('selected');
+                }
+                else {
+                  $images.find('.row:first-child').height(436);
+                  $images.find('.row:last-child').hide();
+                }
+              }
+
+              slider.unslider('next');
+            });
+          });
         });
       }
     });

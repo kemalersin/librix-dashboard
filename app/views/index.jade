@@ -10,7 +10,7 @@ block content
   section#institutions
     ul
       li
-        div.container
+        .container.institutions
           table#institutions-table.table.table-striped.table-bordered.nowrap(cellspacing='0', width='100%')
             thead
               tr
@@ -22,7 +22,7 @@ block content
                 th Gerçekleşen Etkinlik
                 th Kalan Etkinlik
       li
-        div.container
+        .container.activities
           table#activities-table.table.table-striped.table-bordered.nowrap(cellspacing='0', width='100%')
             thead
               tr
@@ -31,3 +31,28 @@ block content
                 th Konusu
                 th İlgili Kişi
                 th Durum
+      li
+        .container.activity
+          .row
+            .dt-info.col-sm-12
+              a.slide-back.to-activities(href)
+                i.fa.fa-chevron-left(aria-hidden='true') &nbsp;
+              span.text-primary
+                strong.subject
+          .well
+            .row
+              .col-sm-6.images
+                .row.vcenter
+                  .col-md-12.text-center.main-img
+                .row.vcenter
+                  .col-md-12.hidden-xs.hidden-sm.thumbnails
+              .col-sm-6.info
+                .row
+                  .col-sm-12.date.text-warning
+                    strong
+                      i.fa.fa-calendar &nbsp;
+                      span
+                .row
+                  .col-sm-12.summary
+                .row
+                  .col-sm-12.description

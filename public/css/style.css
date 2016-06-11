@@ -131,6 +131,47 @@ html, body {
   #contact i.fa {
     margin-bottom: 8px; }
 
+.container.activity .row {
+  margin-bottom: 10px; }
+
+.container.activity .well {
+  height: 100%;
+  min-height: 486px;
+  padding-bottom: 0; }
+  .container.activity .well > .row {
+    padding: 0 0 0 14px; }
+
+.container.activity .description > .text {
+  height: 338px; }
+
+.container.activity .info {
+  padding-left: 4px; }
+
+.container.activity .images .row:first-child {
+  height: 365px;
+  padding: 4px;
+  margin-right: 2px;
+  background-color: #fff;
+  border: 1px solid #e8e8e8; }
+
+.container.activity .images .row:last-child {
+  padding: 0; }
+  .container.activity .images .row:last-child div[class*='col'] {
+    padding: 0; }
+    .container.activity .images .row:last-child div[class*='col'] img {
+      margin-right: 10px; }
+
+.container.activity .images .main-img img {
+  max-width: 100%;
+  max-height: 365px; }
+
+.container.activity .images .thumb {
+  cursor: pointer;
+  max-width: 100px; }
+
+.container.activity .images .thumb.selected {
+  border: 2px solid #ee4b28; }
+
 footer {
   padding: 20px 0; }
   footer .glyphicon {
