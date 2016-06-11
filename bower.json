@@ -10,6 +10,7 @@
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.6.3",
     "ammap3": "^3.20.7",
+    "amcharts3": "^3.20.7",
     "unslider": "^2.0.3",
     "moment": "^2.13.0",
     "scrollreveal": "^3.1.4",

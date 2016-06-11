@@ -1,6 +1,9 @@
 (function ($) {
   'use strict';
 
+  var charts = {};
+  var chartConfig = {};
+
   var scroll = function (el, reset) {
     if (reset) {
       slider.unslider('animate:first');
@@ -32,6 +35,8 @@
     keys: false,
     nav: false
   });
+
+  $('#charts').unslider();
 
   slider.on('unslider.change', function(event, index, slide) {
     if (index === 2) {
@@ -286,5 +291,99 @@
       event: 'homeButtonClicked',
       method: mapHomeClick
     }]
+  });
+
+  chartConfig.chart1 = {
+    "theme": "light",
+    "type": "serial",
+    "startDuration": 2,
+    "dataProvider": [{
+    "country": "İstanbul",
+    "visits": 4025,
+    "color": "#FF0F00"
+  }, {
+    "country": "Ankara",
+    "visits": 3209,
+    "color": "#FF9E01"
+  }, {
+    "country": "İzmir",
+    "visits": 2322,
+    "color": "#FCD202"
+  }, {
+    "country": "Adana",
+    "visits": 1522,
+    "color": "#F8FF01"
+  }, {
+    "country": "Eskişehir",
+    "visits": 1214,
+    "color": "#B0DE09"
+  }, {
+    "country": "Konya",
+    "visits": 984,
+    "color": "#04D215"
+  }, {
+    "country": "Bursa",
+    "visits": 711,
+    "color": "#0D8ECF"
+  }, {
+    "country": "Kocaeli",
+    "visits": 665,
+    "color": "#0D52D1"
+  }, {
+    "country": "Antalya",
+    "visits": 580,
+    "color": "#2A0CD0"
+  }, {
+    "country": "Gaziantep",
+    "visits": 443,
+    "color": "#8A0CCF"
+  }, {
+      "country": "Trabzon",
+      "visits": 225,
+      "color": "#8A0CCF"
+    }],
+    "valueAxes": [{
+    "position": "left",
+    "title": "Etkinlikler"
+  }],
+    "graphs": [{
+    "balloonText": "[[category]]: <b>[[value]]</b>",
+    "fillColorsField": "color",
+    "fillAlphas": 1,
+    "lineAlpha": 0.1,
+    "type": "column",
+    "valueField": "visits"
+  }],
+    "depth3D": 20,
+    "angle": 30,
+    "chartCursor": {
+    "categoryBalloonEnabled": false,
+      "cursorAlpha": 0,
+      "zoomable": false
+  },
+  "categoryField": "country",
+    "categoryAxis": {
+    "gridPosition": "start",
+      "labelRotation": 45
+  },
+  "export": {
+    "enabled": true
+  }
+};
+
+  $(window).scroll(function() {
+    for (var x in chartConfig) {
+      if (typeof charts[x] != 'undefined')
+        continue;
+
+      var hT = $('#' + x).offset().top,
+        hH = $('#' + x).outerHeight(),
+        wH = $(window).height(),
+        wS = $(this).scrollTop();
+
+      if (wS > (hT + hH - wH)){
+        charts[x] = AmCharts.makeChart(x, chartConfig[x]);
+      }
+    }
   });
 })(jQuery);

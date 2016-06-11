@@ -114,9 +114,36 @@ html, body {
 
 #institutions {
   width: 100%;
-  padding: 40px 0; }
+  padding: 40px 0;
+  background: white;
+  background: -moz-linear-gradient(top, white 32%, #f6f6f6 84%, #ededed 100%);
+  background: -webkit-linear-gradient(top, white 32%, #f6f6f6 84%, #ededed 100%);
+  background: linear-gradient(to bottom, white 32%, #f6f6f6 84%, #ededed 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); }
   #institutions li {
     list-style: none; }
+
+#charts {
+  width: 100%;
+  padding: 20px 0;
+  background: #5dd19c;
+  background: linear-gradient(20deg, #104a72, #5dd19c 75%, #fffae8);
+  box-shadow: inset 0 3px 2px rgba(255, 255, 255, 0.02), inset 0 0 0 1px rgba(255, 255, 255, 0.08); }
+  #charts .title {
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); }
+  #charts .separator {
+    background: radial-gradient(50% 0, farthest-side, rgba(0, 0, 0, 0.2), transparent);
+    background: radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), transparent);
+    background-size: 100% 10px;
+    background-repeat: no-repeat; }
+  #charts .chart-container {
+    padding: 20px;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+    #charts .chart-container .chart {
+      height: 100%; }
 
 #contact {
   color: #ffffff;
@@ -179,3 +206,41 @@ footer {
     font-size: 60px; }
     footer .glyphicon :hover {
       color: #306d9f; }
+
+.unslider {
+  position: relative; }
+  .unslider .unslider-arrow {
+    display: block;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    right: -50px;
+    left: auto;
+    margin-top: -16px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2) no-repeat 50% 50%;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==");
+    background-size: 7px 11px;
+    border-radius: 32px;
+    text-indent: -999em;
+    opacity: .6;
+    transition: opacity .2s; }
+  .unslider .unslider-arrow:hover {
+    opacity: 1; }
+  .unslider .unslider-arrow.prev {
+    left: -50px;
+    right: auto;
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg); }
+  .unslider .unslider-arrow {
+    right: 40px; }
+  .unslider .unslider-arrow.prev {
+    left: 40px; }
+  .unslider .unslider-nav {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    top: auto;
+    margin: 0;
+    z-index: 3; }
