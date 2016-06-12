@@ -462,11 +462,13 @@
 
 
   $('#charts').unslider().on('unslider.change', function(event, index, slide) {
-    var chart = 'chart' + (parseInt(index) + 1);
+    setTimeout(function () {
+      var chart = 'chart' + (parseInt(index) + 1);
 
-    if (typeof charts[chart] === 'undefined') {
-      charts[chart] = AmCharts.makeChart(chart, chartConfig[chart]);
-    }
+      if (typeof charts[chart] === 'undefined') {
+        charts[chart] = AmCharts.makeChart(chart, chartConfig[chart]);
+      }
+    }, 750);
   });
 
   $(window).scroll(function() {
