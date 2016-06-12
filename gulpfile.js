@@ -2,24 +2,42 @@ var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   plumber = require('gulp-plumber'),
   livereload = require('gulp-livereload'),
-  minify = require('gulp-minify'),
-  cleanCSS = require('gulp-clean-css'),
-  sass = require('gulp-sass');
+  uglify = require('gulp-uglify'),
+  sass = require('gulp-sass'),
+  rename = require('gulp-rename'),
+  pump = require('pump');
 
-gulp.task('sass', function () {
-  gulp.src('./public/css/*.scss')
-    .pipe(plumber())
-    .pipe(sass())
-    .pipe(gulp.dest('./public/css'))
-    .pipe(livereload());
+gulp.task('sass', function (cb) {
+  pump([
+    gulp.src('./public/css/*.scss'),
+    plumber(),
+    sass({ outputStyle: 'compressed' }),
+    gulp.dest('./public/css'),
+    livereload()
+  ], cb);
+});
+
+gulp.task('compress', function(cb) {
+  pump([
+      gulp.src(['./public/js/*.js', '!./public/js/*.min.js']),
+      uglify(),
+      rename({
+        suffix: '.min'
+      }),
+      gulp.dest('./public/js')
+    ],
+    cb
+  );
 });
 
 gulp.task('watch', function() {
   gulp.watch('./public/css/*.scss', ['sass']);
+  gulp.watch(['./public/js/*.js', '!./public/js/*.min.js'], ['compress']);
 });
 
 gulp.task('develop', function () {
   livereload.listen();
+
   nodemon({
     script: 'app.js',
     ext: 'js coffee jade',
@@ -35,30 +53,9 @@ gulp.task('develop', function () {
   });
 });
 
-gulp.task('compress', function() {
-  gulp.src('./public/js/*.js')
-    .pipe(minify({
-      ext: {
-        src: '.js',
-        min: '.min.js'
-      },
-      exclude: ['tasks'],
-      ignoreFiles: ['*min.js']
-    }))
-    .pipe(gulp.dest('./public/js'))
-    .pipe(livereload());
-});
-
-gulp.task('minify-css', function() {
-  return gulp.src('public/css/*.css')
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('public/css/'));
-});
-
 gulp.task('default', [
   'sass',
   'develop',
   'compress',
-  'minify-css',
   'watch'
 ]);
