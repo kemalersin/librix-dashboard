@@ -8,7 +8,7 @@ block content
       a.btn.btn-primary.btn-lg.page-scroll(href='#map') Devam Edin
   section#map
   section#institutions
-    ul
+    ul.slide
       li
         .container.institutions
           table#institutions-table.table.table-striped.table-bordered.nowrap(cellspacing='0', width='100%')
@@ -57,8 +57,8 @@ block content
                 .row
                   .col-sm-12.description
   section#charts
-    ul
-      li
+    ul.slide
+      li.chart1
         .row
           .col-sm-12.title.text-center
             h3 En Çok Etkinlik Düzenlenen İller
@@ -66,3 +66,19 @@ block content
         .row
           .col-sm-10.col-sm-offset-1.chart-container
             #chart1.chart
+      li.chart2
+        .row
+          .col-sm-12.title.text-center
+            h3 En Çok Etkinlik Düzenlenen Kurumlar
+          .col-sm-12.separator &nbsp;
+        .row
+          .col-sm-10.col-sm-offset-1.chart-container
+            #chart2.chart
+      li.chart3
+        .row
+          .col-sm-12.title.text-center
+            h3 Aylara Göre Etkinlikler
+          .col-sm-12.separator &nbsp;
+        .row
+          .col-sm-10.col-sm-offset-1.chart-container
+            #chart3.chart

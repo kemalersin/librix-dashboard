@@ -4,6 +4,10 @@ var _ = require('lodash'),
   config = require('../../config/config'),
   router = express.Router();
 
+const chartColors = [
+  '#FF0F00', '#FF9E01', '#FCD202', '#F8FF01', '#B0DE09',
+  '#04D215', '#0D8ECF', '#0D52D1', '#2A0CD0', '#8A0CCF'];
+
 module.exports = function (app) {
   app.use('/', router);
 };
@@ -24,64 +28,80 @@ router.get('/institutions', function (req, res, next) {
 
 router.get('/mapdata', function (req, res, next) {
   jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
-    if (err) {
-      next();
-    }
-    else {
-      var data = _.chain(obj).groupBy(function (activity) {
-        return activity['Il'];
-      }).toPairs().transform(function (result, value) {
+    var data = _.chain(obj)
+      .groupBy(function (activity) {
+        return activity['IlKodu'];
+      })
+      .toPairs().transform(function (result, value) {
         result.push({
           id: value[0],
           value: _.size(value[1])
         });
-      }, []).value();
+      }, [])
+      .value();
 
-      res.send({
-        map: 'turkeyHigh',
-        areas: data
-      });
-    }
+    res.send({
+      map: 'turkeyHigh',
+      areas: data
+    });
   });
 });
 
 router.get('/activities/:institute', function (req, res, next) {
   jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
-    if (err) {
-      next();
-    }
-    else {
-      var data = _.chain(obj)
-        .filter({'KurumKodu': req.params['institute']})
-        .transform(function (result, value) {
-          result.push(_.pick(value, [
-            'Id',
-            'BaslangicTarihi',
-            'BitisTarihi',
-            'Konu',
-            'IlgiliKisi',
-            'Tamamlandi'
-          ]));
-        }, []);
+    var data = _.chain(obj)
+      .filter({'KurumKodu': req.params['institute']})
+      .transform(function (result, value) {
+        result.push(_.pick(value, [
+          'Id',
+          'BaslangicTarihi',
+          'BitisTarihi',
+          'Konu',
+          'IlgiliKisi',
+          'Tamamlandi'
+        ]));
+      }, []);
 
-      res.send({
-        data: data
-      });
-    }
+    res.send({
+      data: data
+    });
   });
 });
 
 router.get('/activity/:id', function (req, res, next) {
   jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
-    if (err) {
-      next();
-    }
-    else {
-      var data = _.chain(obj)
-        .filter({'Id': _.parseInt(req.params['id'])})
-        .head();
+    var data = _.chain(obj)
+      .filter({'Id': _.parseInt(req.params['id'])})
+      .head();
 
-      res.send(data);
-    }
+    res.send(data);
+  });
+});
+
+router.get('/charts/top-10-counties', function (req, res, next) {
+  jsonfile.readFile(config.root + '/data/charts/top-10-counties.json', function(err, obj) {
+    var data = _.chain(obj)
+      .transform(function (result, value, key) {
+        result.push({
+          county: value['county'],
+          activities: value['activities'],
+          color: chartColors[key]
+        });
+      }, [])
+      .value();
+
+    res.send(data);
+  });
+});
+
+router.get('/charts/top-10-institutions', function (req, res, next) {
+  jsonfile.readFile(config.root + '/data/charts/top-10-institutions.json', function(err, obj) {
+    res.send(obj);
+  });
+});
+
+router.get('/charts/activities-by-month', function (req, res, next) {
+  jsonfile.readFile(config.root + '/data/charts/activities-by-month.json', function(err, obj) {
+    res.send(obj);
   });
 });

@@ -1,0 +1,49 @@
+[{
+  "month": "Ocak",
+  "activities": 5,
+  "completed": 4
+}, {
+  "month": "Şubat",
+  "activities": 7,
+  "completed": 6
+}, {
+  "month": "Mart",
+  "activities": 8,
+  "completed": 8
+}, {
+  "month": "Nisan",
+  "activities": 12,
+  "completed": 12
+}, {
+  "month": "Mayıs",
+  "activities": 10,
+  "completed": 10
+}, {
+  "month": "Haziran",
+  "activities": 14,
+  "completed": 12
+}, {
+  "month": "Temmuz",
+  "activities": 12,
+  "completed": 12
+}, {
+  "month": "Ağustos",
+  "activities": 9,
+  "completed": 8
+}, {
+  "month": "Eylül",
+  "activities": 10,
+  "completed": 9
+}, {
+  "month": "Ekim",
+  "activities": 12,
+  "completed": 12
+}, {
+  "month": "Kasım",
+  "activities": 11,
+  "completed": 10
+}, {
+  "month": "Aralık",
+  "activities": 13,
+  "completed": 12
+}]

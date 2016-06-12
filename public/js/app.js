@@ -15,7 +15,7 @@
     }, 1250, 'easeInOutExpo');
   }
 
-  var mapRender = function (event) {
+  var chartRender = function (event) {
     $('.amcharts-chart-div a').remove();
   }
 
@@ -35,8 +35,6 @@
     keys: false,
     nav: false
   });
-
-  $('#charts').unslider();
 
   slider.on('unslider.change', function(event, index, slide) {
     if (index === 2) {
@@ -152,14 +150,14 @@
           { data: 'IlgiliKisi', width: '20%' },
           { data: 'Tamamlandi', width: '15%' }
         ],
-        "columnDefs": [{
-          "targets": [0, 1],
-          "render": function (data, type, full, meta) {
+        columnDefs: [{
+          targets: [0, 1],
+          render: function (data, type, full, meta) {
             return moment(data).format('DD.MM.Y');
           }
         }, {
-          "targets": 4,
-          "render": function (data, type, full, meta) {
+          targets: 4,
+          render: function (data, type, full, meta) {
             return (data === true) ?
               '<i class="fa fa-check-square-o text-success"></i> Tamamlandı' :
               '<i class="fa fa-square-o text-danger"></i> Tamamlanmadı';
@@ -257,33 +255,28 @@
     autoDisplay: true,
     theme: 'light',
     colorSteps: 10,
-
     dataProvider: {
       map: 'turkeyHigh',
       getAreasFromMap: true
     },
-
     valueLegend: {
       right: 10,
       minValue: 'Hiç Yok',
       maxValue: 'Çok Fazla',
       color: '#fff'
     },
-
     areasSettings: {
       autoZoom: false,
       selectable: true,
       balloonText: '[[title]]:<strong>[[value]]</strong> ([[percent]]%)'
     },
-
     dataLoader: {
       url: '/mapdata',
       format: 'json'
     },
-
     listeners: [{
       event: 'rendered',
-      method: mapRender
+      method: chartRender
     }, {
       event: 'clickMapObject',
       method: mapClick
@@ -294,95 +287,197 @@
   });
 
   chartConfig.chart1 = {
-    "theme": "light",
-    "type": "serial",
-    "startDuration": 2,
-    "dataProvider": [{
-      "country": "İstanbul",
-      "visits": 4025,
-      "color": "#FF0F00"
-    }, {
-      "country": "Ankara",
-      "visits": 3209,
-      "color": "#FF9E01"
-    }, {
-      "country": "İzmir",
-      "visits": 2322,
-      "color": "#FCD202"
-    }, {
-      "country": "Adana",
-      "visits": 1522,
-      "color": "#F8FF01"
-    }, {
-      "country": "Eskişehir",
-      "visits": 1214,
-      "color": "#B0DE09"
-    }, {
-      "country": "Konya",
-      "visits": 984,
-      "color": "#04D215"
-    }, {
-      "country": "Bursa",
-      "visits": 711,
-      "color": "#0D8ECF"
-    }, {
-      "country": "Kocaeli",
-      "visits": 665,
-      "color": "#0D52D1"
-    }, {
-      "country": "Antalya",
-      "visits": 580,
-      "color": "#2A0CD0"
-    }, {
-      "country": "Gaziantep",
-      "visits": 443,
-      "color": "#8A0CCF"
-    }, {
-      "country": "Trabzon",
-      "visits": 225,
-      "color": "#8A0CCF"
-    }],
-    "valueAxes": [{
-      "position": "left",
-      "title": "Etkinlikler"
-    }],
-    "graphs": [{
-      "balloonText": "[[category]]: <b>[[value]]</b>",
-      "fillColorsField": "color",
-      "fillAlphas": 1,
-      "lineAlpha": 0.1,
-      "type": "column",
-      "valueField": "visits"
-    }],
-    "depth3D": 20,
-    "angle": 30,
-    "chartCursor": {
-      "categoryBalloonEnabled": false,
-      "cursorAlpha": 0,
-      "zoomable": false
+    theme: 'light',
+    type: 'serial',
+    startDuration: 2,
+    dataLoader: {
+      url: '/charts/top-10-counties',
+      format: 'json'
     },
-    "categoryField": "country",
-    "categoryAxis": {
-      "gridPosition": "start",
-      "labelRotation": 45
+    valueAxes: [{
+      position: 'left',
+      title: 'Etkinlikler',
+      titleColor: '#193b2b',
+      titleFontSize: 14
+    }],
+    graphs: [{
+      balloonText: '[[category]]: <b>[[value]]</b>',
+      fillColorsField: 'color',
+      fillAlphas: 1,
+      lineAlpha: 0.1,
+      type: 'column',
+      valueField: 'activities'
+    }],
+    depth3D: 20,
+    angle: 30,
+    chartCursor: {
+      categoryBalloonEnabled: false,
+      cursorAlpha: 0,
+      zoomable: false
     },
-    "export": {
-      "enabled": true
-    }
+    categoryField: 'county',
+    categoryAxis: {
+      gridPosition: 'start',
+      labelRotation: 45
+    },
+    export: {
+      enabled: true
+    },
+    listeners: [{
+      event: 'rendered',
+      method: chartRender
+    }]
   };
 
-  $(window).scroll(function() {
-    for (var x in chartConfig) {
-      if (typeof charts[x] != 'undefined')
-        continue;
+  chartConfig.chart2 = {
+    theme: 'light',
+    type: 'serial',
+    startDuration: 2,
+    dataLoader: {
+      url: '/charts/top-10-institutions',
+      format: 'json'
+    },
+    valueAxes: [{
+      position: 'left',
+      title: 'Etkinlikler',
+      titleColor: '#451c32',
+      titleFontSize: 14
+    }],
+    graphs: [{
+      balloonText: '[[category]]: <b>[[value]]</b>',
+      fillColors: '#e4c2d2',
+      fillAlphas: 1,
+      lineAlpha: 0.1,
+      type: 'column',
+      valueField: 'activities'
+    }],
+    depth3D: 20,
+    angle: 30,
+    rotate: true,
+    categoryField: 'institute',
+    categoryAxis: {
+      color: '#e4c2d2',
+      gridPosition: 'start',
+      fillAlpha: 0.05,
+      position: 'right'
+    },
+    export: {
+      enabled: true
+    },
+    listeners: [{
+      event: 'rendered',
+      method: chartRender
+    }]
+  };
 
-      var hT = $('#' + x).offset().top,
-        hH = $('#' + x).outerHeight(),
+  chartConfig.chart3 = {
+    type: 'serial',
+    theme: 'light',
+    marginRight: 40,
+    marginLeft: 40,
+    autoMarginOffset: 20,
+    dataLoader: {
+      url: '/charts/activities-by-month',
+      format: 'json'
+    },
+    synchronizeGrid: true,
+    valueAxes: [{
+      id: 'v1',
+      axisAlpha: 0,
+      position: 'left',
+      ignoreAxisWidth: true
+    }, {
+      id: 'v2',
+      axisAlpha: 1,
+      position: 'right',
+      title: 'Tamamlananlar',
+      titleColor: '#3d4715',
+      titleFontSize: 14
+    }],
+    balloon: {
+      borderThickness: 1,
+      shadowAlpha: 0
+    },
+    graphs: [{
+      id: 'g1',
+      valueAxis: 'v1',
+      balloon: {
+        drop: true,
+        adjustBorderColor: false,
+        color: '#ffffff'
+      },
+      bullet: 'round',
+      bulletBorderAlpha: 1,
+      bulletColor: '#2bc792',
+      bulletSize: 5,
+      hideBulletsCount: 50,
+      lineThickness: 2,
+      lineColor: '#c9ed4c',
+      title: 'red line',
+      useLineColorForBulletBorder: true,
+      valueField: 'activities',
+      balloonText: '<span style="font-size:18px;">[[value]]</span>'
+    },{
+      id: 'g2',
+      valueAxis: 'v2',
+      balloon: {
+        drop: true,
+        adjustBorderColor: false,
+        color: '#ffffff'
+      },
+      bullet: 'square',
+      bulletBorderAlpha: 1,
+      bulletColor: '#2bc792',
+      bulletSize: 5,
+      hideBulletsCount: 50,
+      lineThickness: 2,
+      lineColor: '#FCD202',
+      title: 'red line',
+      useLineColorForBulletBorder: true,
+      valueField: 'completed',
+      balloonText: '<span style="font-size:18px;">[[value]]</span>'
+    }],
+    chartCursor: {
+      valueLineEnabled: true,
+      valueLineBalloonEnabled: true,
+      cursorAlpha: 1,
+      cursorColor: '#258cbb',
+      limitToGraph: 'g1',
+      valueLineAlpha: 0.2,
+    },
+    categoryField: 'month',
+    categoryAxis: {
+      dashLength: 1,
+      minorGridEnabled: true
+    },
+    export: {
+      enabled: true
+    },
+    listeners: [{
+      event: 'rendered',
+      method: chartRender
+    }]
+  };
+
+
+
+  $('#charts').unslider().on('unslider.change', function(event, index, slide) {
+    var chart = 'chart' + (parseInt(index) + 1);
+
+    if (typeof charts[chart] === 'undefined') {
+      charts[chart] = AmCharts.makeChart(chart, chartConfig[chart]);
+    }
+  });
+
+  $(window).scroll(function() {
+    if (typeof charts['chart1'] == 'undefined') {
+      var hT = $('#chart1').offset().top,
+        hH = $('#chart1').outerHeight(),
         wH = $(window).height(),
         wS = $(this).scrollTop();
 
-      if (wS > (hT + hH - wH)){
-        charts[x] = AmCharts.makeChart(x, chartConfig[x]);
+      if (wS > (hT + hH - wH)) {
+        charts['chart1'] = AmCharts.makeChart('chart1', chartConfig['chart1']);
       }
     }
   });

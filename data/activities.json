@@ -1,7 +1,8 @@
 [
   {
     "Id": 1,
-    "Il": "TR-06",
+    "IlKodu": "TR-06",
+    "IlAdi": "Ankara",
     "KurumKodu": "711690",
     "BaslangicTarihi": "2016-05-29",
     "BitisTarihi": "2016-05-29",
@@ -16,7 +17,8 @@
   },
   {
     "Id": 2,
-    "Il": "TR-06",
+    "IlKodu": "TR-06",
+    "IlAdi": "Ankara",
     "KurumKodu": "711690",
     "BaslangicTarihi": "2016-06-06",
     "BitisTarihi": "2016-06-06",
@@ -35,7 +37,8 @@
   },
   {
     "Id": 3,
-    "Il": "TR-01",
+    "IlKodu": "TR-01",
+    "IlAdi": "Adana",
     "KurumKodu": "718896",
     "BaslangicTarihi": "2016-03-20",
     "BitisTarihi": "2016-03-23",

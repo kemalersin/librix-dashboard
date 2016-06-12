@@ -1,0 +1,34 @@
+[{
+  "county": "İstanbul",
+  "activities": 4025
+}, {
+  "county": "Ankara",
+  "activities": 3209
+}, {
+  "county": "İzmir",
+  "activities": 2322
+}, {
+  "county": "Adana",
+  "activities": 1522
+}, {
+  "county": "Eskişehir",
+  "activities": 1214
+}, {
+  "county": "Konya",
+  "activities": 984
+}, {
+  "county": "Bursa",
+  "activities": 711
+}, {
+  "county": "Kocaeli",
+  "activities": 665
+}, {
+  "county": "Antalya",
+  "activities": 580
+}, {
+  "county": "Gaziantep",
+  "activities": 443
+}, {
+  "county": "Trabzon",
+  "activities": 225
+}]
