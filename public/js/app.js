@@ -228,7 +228,7 @@
                 $images.find('.main-img').html('<img class="lazy collapse" src="' + data['Gorseller'][0] + '" />');
 
                 if (data['Gorseller'].length > 1) {
-                  $images.find('.row:first-child').height(365);
+                  $images.find('.row:first-child').removeClass('max');
                   $images.find('.row:last-child').show();
 
                   data['Gorseller'].forEach(function (src) {
@@ -238,7 +238,7 @@
                   $images.find('.thumb:first-child').addClass('selected');
                 }
                 else {
-                  $images.find('.row:first-child').height(436);
+                  $images.find('.row:first-child').addClass('max');
                   $images.find('.row:last-child').hide();
                 }
               }

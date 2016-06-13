@@ -234,7 +234,6 @@ ul.slide {
 
   .well {
     height: 100%;
-    min-height: 486px;
     padding-bottom: 0;
 
     > .row {
@@ -251,28 +250,48 @@ ul.slide {
   }
 
   .images {
-    .row:first-child {
-      height: 365px;
-      padding: 4px;
+    .row {
       margin-right: 2px;
+    }
+
+    .row:first-child {
+      height: 374px;
+      padding: 4px;
       background-color: #fff;
       border: 1px solid #e8e8e8;
     }
 
+    .row:first-child.max {
+      height: 442px;
+    }
+
     .row:last-child {
       padding: 0;
+      margin-bottom: 0;
 
-      div[class*='col'] {
+      .thumb-container {
         padding: 0;
-        height: 60px;
+        height: auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin-right: 16px;
 
-        img {
-          margin-right: 10px;
+        .thumbnails {
+          img {
+            margin-right: 10px;
+          }
+
+          img:last-child {
+            margin-right: 0;
+          }
         }
       }
     }
 
     .main-img {
+      width: 100%;
+
       img {
         max-width: 100%;
         max-height: 365px;
@@ -385,6 +404,30 @@ footer {
         background: #fff;
         cursor: default;
         opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #institutions {
+    height: 696px;
+
+    .container.activity {
+      .well {
+        height: 550px;
+      }
+
+      .images {
+        .row:first-child, .row:first-child.max {
+          height: 265px;
+        }
+
+        .main-img {
+          img {
+            max-height: 165px;
+          }
+        }
       }
     }
   }
