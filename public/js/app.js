@@ -1,6 +1,7 @@
 (function ($) {
   'use strict';
 
+  var institute;
   var charts = {};
   var chartConfig = {};
 
@@ -127,6 +128,8 @@
     $.map(dt.rows({ selected: true }).data(), function (data) {
       var isNew = typeof dtActivities === 'undefined';
 
+      institute = data['Kod'];
+
       if (!isNew) {
         dtActivities.destroy();
       }
@@ -182,7 +185,7 @@
       if (isNew) {
         dtActivities.on('select', function (e, dt, type, indexes) {
           $.map(dt.rows({ selected: true }).data(), function (data) {
-            $.get('/activity/' + data['Id'], function (data) {
+            $.get('/activity/' + institute + '/' + data['Id'], function (data) {
               var $activity = $('.container.activity'),
                 $images = $activity.find('.images'),
                 $info = $activity.find('.info');

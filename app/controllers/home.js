@@ -48,10 +48,8 @@ router.get('/mapdata', function (req, res, next) {
 });
 
 router.get('/activities/:institute', function (req, res, next) {
-  jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
-    var data = _.chain(obj)
-      .filter({'KurumKodu': req.params['institute']})
-      .transform(function (result, value) {
+  jsonfile.readFile(config.root + '/data/activities/' + req.params['institute'] + '.json', function(err, obj) {
+    var data = _.transform(obj, function (result, value) {
         result.push(_.pick(value, [
           'Id',
           'BaslangicTarihi',
@@ -68,8 +66,8 @@ router.get('/activities/:institute', function (req, res, next) {
   });
 });
 
-router.get('/activity/:id', function (req, res, next) {
-  jsonfile.readFile(config.root + '/data/activities.json', function(err, obj) {
+router.get('/activity/:institute/:id', function (req, res, next) {
+  jsonfile.readFile(config.root + '/data/activities/' + req.params['institute'] + '.json' , function(err, obj) {
     var data = _.chain(obj)
       .filter({'Id': _.parseInt(req.params['id'])})
       .head();
