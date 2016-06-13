@@ -95,6 +95,7 @@
       pageLength: 25,
       processing: true,
       scrollX: true,
+      scrollY: 396,
       select: {
         style: 'single',
         blurable: true,

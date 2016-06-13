@@ -94,4 +94,76 @@
   "ToplamEtkinlik": 0,
   "GerceklesenEtkinlik": 0,
   "KalanEtkinlik": 0
+}, {
+  "Kod": "971216",
+  "Tanim": "Burgazada Öğretmen Evi ve Akşam Sanat Okulu",
+  "Il": "İstanbul",
+  "Ilce": "Adalar",
+  "ToplamEtkinlik": 3,
+  "GerceklesenEtkinlik": 1,
+  "KalanEtkinlik": 2
+}, {
+  "Kod": "974966",
+  "Tanim": "Hadımköy TOKİ Anadolu İmam Hatip Lisesi",
+  "Il": "İstanbul",
+  "Ilce": "Arnavutköy",
+  "ToplamEtkinlik": 0,
+  "GerceklesenEtkinlik": 0,
+  "KalanEtkinlik": 0
+}, {
+  "Kod": "328077",
+  "Tanim": "Abdurrahman ve Nermin Bilimli Mesleki ve Teknik Anadolu Lisesi",
+  "Il": "İstanbul",
+  "Ilce": "Bağcılar",
+  "ToplamEtkinlik": 0,
+  "GerceklesenEtkinlik": 0,
+  "KalanEtkinlik": 0
+}, {
+  "Kod": "970973",
+  "Tanim": "Akseki Anadolu Lisesi",
+  "Il": "Antalya",
+  "Ilce": "Akseki",
+  "ToplamEtkinlik": 1,
+  "GerceklesenEtkinlik": 0,
+  "KalanEtkinlik": 0
+}, {
+  "Kod": "969613",
+  "Tanim": "Kurşunlu İnci Kalender İlkokulu",
+  "Il": "Antalya",
+  "Ilce": "Aksu",
+  "ToplamEtkinlik": 1,
+  "GerceklesenEtkinlik": 1,
+  "KalanEtkinlik": 0
+}, {
+  "Kod": "965570",
+  "Tanim": "Aşkale Mesleki ve Teknik Anadolu Lisesi",
+  "Il": "Erzurum",
+  "Ilce": "Aşkale",
+  "ToplamEtkinlik": 0,
+  "GerceklesenEtkinlik": 0,
+  "KalanEtkinlik": 0
+}, {
+  "Kod": "739310",
+  "Tanim": "Ortaköy Şehit Yüksel Çağlar Ortaokulu",
+  "Il": "Ordu",
+  "Ilce": "Çatalpınar",
+  "ToplamEtkinlik": 1,
+  "GerceklesenEtkinlik": 1,
+  "KalanEtkinlik": 0
+}, {
+  "Kod": "381251",
+  "Tanim": "İlküvez Çok Programlı Anadolu Lisesi",
+  "Il": "Ordu",
+  "Ilce": "Çaybaşı",
+  "ToplamEtkinlik": 0,
+  "GerceklesenEtkinlik": 0,
+  "KalanEtkinlik": 0
+}, {
+  "Kod": "967482",
+  "Tanim": "Burhanettin Yıldız Mesleki ve Teknik Anadolu Lisesi",
+  "Il": "Diyarbakır",
+  "Ilce": "Bağlar",
+  "ToplamEtkinlik": 3,
+  "GerceklesenEtkinlik": 2,
+  "KalanEtkinlik": 0
 }]
