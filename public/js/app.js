@@ -320,9 +320,6 @@
       gridPosition: 'start',
       labelRotation: 45
     },
-    export: {
-      enabled: true
-    },
     listeners: [{
       event: 'rendered',
       method: chartRender
@@ -360,9 +357,6 @@
       gridPosition: 'start',
       fillAlpha: 0.05,
       position: 'right'
-    },
-    export: {
-      enabled: true
     },
     listeners: [{
       event: 'rendered',
@@ -450,15 +444,11 @@
       dashLength: 1,
       minorGridEnabled: true
     },
-    export: {
-      enabled: true
-    },
     listeners: [{
       event: 'rendered',
       method: chartRender
     }]
   };
-
 
 
   $('#charts').unslider().on('unslider.change', function(event, index, slide) {
